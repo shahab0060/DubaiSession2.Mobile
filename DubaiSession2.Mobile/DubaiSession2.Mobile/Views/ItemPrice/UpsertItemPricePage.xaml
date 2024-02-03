@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DubaiSession2.Mobile.Views.ItemPrice.UpsertItemPricePage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <Label x:Name="ItemTitleLbl"></Label>
+                <ListView x:Name="ItemPricesListView" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="{Binding Status,StringFormat='{0}.ico'}"></Image>
+                                    <Label Text="{Binding Date}"></Label>
+                                    <Label Text="{Binding Price}"></Label>
+                                    <Label Text="{Binding CancellationPolicyTitle}"></Label>
+                                    <Button x:Name="RemoveBtn" Clicked="RemoveBtn_Clicked" Text="remove"></Button>
+                                    <Button x:Name="UpdateBtn" Clicked="UpdateBtn_Clicked" Text="update"></Button>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="from date"></Label>
+                        <DatePicker x:Name="FromDateInput"></DatePicker>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="to date"></Label>
+                        <DatePicker x:Name="ToDateInput"></DatePicker>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="on the weekend"></Label>
+                    <Stepper x:Name="WeekendPriceInput" HorizontalOptions="StartAndExpand"></Stepper>
+                    <Picker ItemsSource="{Binding}" x:Name="WeekendPolicy" ItemDisplayBinding="{Binding Name}" HorizontalOptions="FillAndExpand">
+                        <Picker.Items>
+                        </Picker.Items>
+                    </Picker>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="on the holiday"></Label>
+                    <Stepper x:Name="HolidaysPriceInput" HorizontalOptions="StartAndExpand"></Stepper>
+                    <Picker ItemsSource="{Binding}" x:Name="HolidaysPolicy" ItemDisplayBinding="{Binding Name}" HorizontalOptions="FillAndExpand">
+                        <Picker.Items>
+                        </Picker.Items>
+                    </Picker>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="on other days"></Label>
+                    <Stepper x:Name="NormalDaysPriceInput" HorizontalOptions="StartAndExpand"></Stepper>
+                    <Picker ItemsSource="{Binding}" x:Name="NormalDaysPolicy" ItemDisplayBinding="{Binding Name}" HorizontalOptions="FillAndExpand">
+                        <Picker.Items>
+                        </Picker.Items>
+                    </Picker>
+                </StackLayout>
+                <Button Text="Set Price" x:Name="SetPriceBtn" Clicked="SetPriceBtn_Clicked"></Button>
+                <Button Text="Back to previous form" x:Name="BackButton" Clicked="BackButton_Clicked"></Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

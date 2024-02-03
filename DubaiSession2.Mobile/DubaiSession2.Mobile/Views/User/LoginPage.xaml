@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DubaiSession2.Mobile.Views.User.LoginPage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Entry x:Name="UserNameInput" Keyboard="Text" Placeholder="please enter your username here"></Entry>
+            <Entry x:Name="PasswordInput" IsPassword="True" Placeholder="please enter your password here"></Entry>
+            <Button x:Name="LoginBtn" Text="Login!" Clicked="LoginBtn_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
